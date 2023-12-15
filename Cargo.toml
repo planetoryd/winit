@@ -1,7 +1,10 @@
 [package]
 name = "winit"
 version = "0.29.4"
-authors = ["The winit contributors", "Pierre Krieger <pierre.krieger1708@gmail.com>"]
+authors = [
+    "The winit contributors",
+    "Pierre Krieger <pierre.krieger1708@gmail.com>",
+]
 description = "Cross-platform window creation library."
 edition = "2021"
 keywords = ["windowing"]
@@ -44,7 +47,15 @@ rustdoc-args = ["--cfg", "docsrs"]
 [features]
 default = ["rwh_06", "x11", "wayland", "wayland-dlopen", "wayland-csd-adwaita"]
 x11 = ["x11-dl", "bytemuck", "percent-encoding", "xkbcommon-dl/x11", "x11rb"]
-wayland = ["wayland-client", "wayland-backend", "wayland-protocols", "wayland-protocols-plasma", "sctk", "ahash", "memmap2"]
+wayland = [
+    "wayland-client",
+    "wayland-backend",
+    "wayland-protocols",
+    "wayland-protocols-plasma",
+    "sctk",
+    "ahash",
+    "memmap2",
+]
 wayland-dlopen = ["wayland-backend/dlopen"]
 wayland-csd-adwaita = ["sctk-adwaita", "sctk-adwaita/ab_glyph"]
 wayland-csd-adwaita-crossfont = ["sctk-adwaita", "sctk-adwaita/crossfont"]
@@ -66,8 +77,12 @@ log = "0.4"
 mint = { version = "0.5.6", optional = true }
 once_cell = "1.12"
 rwh_04 = { package = "raw-window-handle", version = "0.4", optional = true }
-rwh_05 = { package = "raw-window-handle", version = "0.5", features = ["std"], optional = true }
-rwh_06 = { package = "raw-window-handle", version = "0.6", features = ["std"], optional = true }
+rwh_05 = { package = "raw-window-handle", version = "0.5", features = [
+    "std",
+], optional = true }
+rwh_06 = { package = "raw-window-handle", version = "0.6", features = [
+    "std",
+], optional = true }
 serde = { version = "1", optional = true, features = ["serde_derive"] }
 smol_str = "0.2.0"
 
@@ -158,15 +173,35 @@ calloop = "0.12.3"
 libc = "0.2.64"
 memmap2 = { version = "0.9.0", optional = true }
 percent-encoding = { version = "2.0", optional = true }
-rustix = { version = "0.38.4", default-features = false, features = ["std", "system", "thread", "process"] }
-sctk = { package = "smithay-client-toolkit", version = "0.18.0", default-features = false, features = ["calloop"], optional = true }
-sctk-adwaita = { version = "0.8.0", default_features = false, optional = true }
-wayland-backend = { version = "0.3.0", default_features = false, features = ["client_system"], optional = true }
+rustix = { version = "0.38.4", default-features = false, features = [
+    "std",
+    "system",
+    "thread",
+    "process",
+] }
+sctk = { package = "smithay-client-toolkit", version = "0.18.0", default-features = false, features = [
+    "calloop",
+], optional = true }
+sctk-adwaita = { path = "./sctk-adwaita", optional = true }
+wayland-backend = { version = "0.3.0", default_features = false, features = [
+    "client_system",
+], optional = true }
 wayland-client = { version = "0.31.1", optional = true }
-wayland-protocols = { version = "0.31.0", features = [ "staging"], optional = true }
-wayland-protocols-plasma = { version = "0.2.0", features = [ "client" ], optional = true }
+wayland-protocols = { version = "0.31.0", features = [
+    "staging",
+], optional = true }
+wayland-protocols-plasma = { version = "0.2.0", features = [
+    "client",
+], optional = true }
 x11-dl = { version = "2.18.5", optional = true }
-x11rb = { version = "0.13.0", default-features = false, features = ["allow-unsafe-code", "dl-libxcb", "randr", "resource_manager", "xinput", "xkb"], optional = true }
+x11rb = { version = "0.13.0", default-features = false, features = [
+    "allow-unsafe-code",
+    "dl-libxcb",
+    "randr",
+    "resource_manager",
+    "xinput",
+    "xkb",
+], optional = true }
 xkbcommon-dl = "0.4.0"
 
 [target.'cfg(target_os = "redox")'.dependencies]
@@ -206,7 +241,7 @@ features = [
     'ResizeObserverSize',
     'VisibilityState',
     'Window',
-    'WheelEvent'
+    'WheelEvent',
 ]
 
 [target.'cfg(target_family = "wasm")'.dependencies]
@@ -221,6 +256,4 @@ console_log = "1"
 web-sys = { version = "0.3.22", features = ['CanvasRenderingContext2d'] }
 
 [workspace]
-members = [
-    "run-wasm",
-]
+members = ["run-wasm"]

@@ -1,0 +1,3 @@
+[submodule "sctk-adwaita"]
+	path = sctk-adwaita
+	url = https://github.com/planetoryd/sctk-adwaita
